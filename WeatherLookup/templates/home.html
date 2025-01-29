@@ -1,7 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %} 
 
-{% block content %}
+{% if api %}
+<div class="card mt-5 text-center" style="width: 30rem">
+  
 
-<h1>Hello world!! :-)</h1>
- 
-{% endblock %}
+  <div class="card-body {{ category_color }}">
+    <h5 class="card-title">Weather Information</h5>
+    <br />
+
+   
+    <p class="card-text">Date : {{ api.0.DateObserved}}</p>
+    <p class="card-text">Current: {{ api.0.ReportingArea}} 's </p>
+    <p class="card-text">Air Quality : {{ api.0.AQI}}</p>
+    <p class="card-text">Air condition :{{ api.0.Category.Name}}</p>
+    <br>
+    {{ category_description }}
+
+    <br />
+  </div>
+</div>
+{% endif %} {% endblock %}
